@@ -14,7 +14,7 @@ CREATE TABLE users (
 
 CREATE TABLE github_users (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  login VARCHAR NOT NULL,
-  email VARCHAR,
-  avatar VARCHAR
+  login TEXT NOT NULL,
+  email TEXT,
+  avatar TEXT
 );
