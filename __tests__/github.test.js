@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const { agent } = require('supertest');
 
 jest.mock('../lib/services/github');
 
@@ -32,5 +33,9 @@ describe('github auth', () => {
       iat: expect.any(Number),
       exp: expect.any(Number),
     });
+  });
+  test('DELETE /api/v1/github should sign out a user', async () => {
+    const res = await request.agent(app).delete('/api/v1/github');
+    expect(res.status).toBe(204);
   });
 });
