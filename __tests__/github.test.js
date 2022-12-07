@@ -10,7 +10,7 @@ describe('github auth', () => {
     return setup(pool);
   });
   afterAll(() => {
-    pool.end;
+    pool.end();
   });
 
   test('/api/v1/github/login should take users to github oauth page', async () => {
